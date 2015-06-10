@@ -5,8 +5,8 @@ StatTracker.TeamsController = Ember.ArrayController.extend({
         teamName: this.get('teamName')
       });
       newTeam.save();
-      alert("Got to new team var")
-      this.transitionToRoute('/');
+      this.set('teamName', '');
+
     }
   }
 

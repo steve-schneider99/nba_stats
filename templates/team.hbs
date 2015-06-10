@@ -1,0 +1,22 @@
+<h1>{{teamName}}</h1>
+
+
+<!-- players list -->
+
+
+
+{{#if isEditing}}
+<form>
+  <div class="form-group">
+    <label for="teamName">Team Name</label>
+    {{input id="teamName" class="form-control" value=teamName}}
+  </div>
+
+  <button class="btn btn-primary" {{action 'save'}}>Save</button>
+</form>
+
+{{else}}
+
+<button class="btn btn-primary" {{action 'edit'}}>Edit</button>
+<button class="btn btn-danger" {{action 'delete'}}>Delete</button>
+{{/if}}

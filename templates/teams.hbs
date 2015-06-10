@@ -3,7 +3,7 @@
 <h3>List of teams:</h3>
 <ul>
   {{#each}}
-    <li>{{teamName}}</li>
+    <li>{{#link-to 'team' this.id}}{{teamName}}{{/link-to}}</li>
   {{/each}}
 </ul>
 

@@ -3,30 +3,35 @@
 
 <!-- players list -->
 
+<div class="row">
+  <div class="col-md-6">
+    {{#if isEditing}}
+    <form>
+      <div class="form-group">
+        <label for="teamName">Team Name</label>
+        {{input id="teamName" class="form-control" value=teamName}}
+      </div>
+
+      <button class="btn btn-primary" {{action 'save'}}>Save</button>
+    </form>
+
+    {{else}}
+
+    <button class="btn btn-primary" {{action 'edit'}}>Edit</button>
+    <button class="btn btn-danger" {{action 'delete'}}>Delete</button>
+    {{/if}}
+
+    <p>{{#link-to 'new-player' this class="btn btn-success"}}New player{{/link-to}}</p>
 
 
-{{#if isEditing}}
-<form>
-  <div class="form-group">
-    <label for="teamName">Team Name</label>
-    {{input id="teamName" class="form-control" value=teamName}}
+    <ul>
+      {{#each player in players}}
+      <li>{{#link-to 'shots' this}}{{player.playerName}}{{/link-to}}</li>
+      {{/each}}
+    </ul>
   </div>
 
-  <button class="btn btn-primary" {{action 'save'}}>Save</button>
-</form>
-
-{{else}}
-
-<button class="btn btn-primary" {{action 'edit'}}>Edit</button>
-<button class="btn btn-danger" {{action 'delete'}}>Delete</button>
-{{/if}}
-
-<p>{{#link-to 'new-player' this class="btn btn-success"}}New player{{/link-to}}</p>
-
-{{outlet}}
-
-<ul>
-  {{#each player in players}}
-  <li>{{player.playerName}}</li>
-  {{/each}}
-</ul>
+  <div class="col-md-4">
+    {{outlet}}
+  </div>
+</div>

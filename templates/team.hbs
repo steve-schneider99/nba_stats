@@ -20,3 +20,13 @@
 <button class="btn btn-primary" {{action 'edit'}}>Edit</button>
 <button class="btn btn-danger" {{action 'delete'}}>Delete</button>
 {{/if}}
+
+<p>{{#link-to 'new-player' this class="btn btn-success"}}New player{{/link-to}}</p>
+
+{{outlet}}
+
+<ul>
+  {{#each player in players}}
+  <li>{{player.playerName}}</li>
+  {{/each}}
+</ul>

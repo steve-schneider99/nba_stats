@@ -1,8 +1,5 @@
 <h1>{{teamName}}</h1>
 
-
-<!-- players list -->
-
 <div class="row">
   <div class="col-md-6">
     {{#if isEditing}}
@@ -21,12 +18,13 @@
     <button class="btn btn-danger" {{action 'delete'}}>Delete</button>
     {{/if}}
 
-    <p>{{#link-to 'new-player' this class="btn btn-success"}}New player{{/link-to}}</p>
+    <p>{{#link-to 'new-player' this.id class="btn btn-success"}}New player{{/link-to}}</p>
 
 
     <ul>
+
       {{#each player in players}}
-      <li>{{#link-to 'shots' this}}{{player.playerName}}{{/link-to}}</li>
+      <li>{{#link-to 'player' player.id}}{{playerName}}{{/link-to}}</li>
       {{/each}}
     </ul>
   </div>

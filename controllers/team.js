@@ -6,6 +6,7 @@ StatTracker.TeamController = Ember.ObjectController.extend({
     },
     save: function() {
       this.set('isEditing', false); // <-- hides edit form
+      this.get('model').save('teamName');
     },
     delete: function() {
       if(confirm("Are you sure? This is a pretty awesome team...")) {

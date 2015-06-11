@@ -1,4 +1,7 @@
 StatTracker.Player = DS.Model.extend({
+  team: DS.belongsTo('team', {async: true}),
   playerName: DS.attr(),
-  team: DS.belongsTo('team', {async: true})
+  shotAttempts: DS.attr(),
+  shotsMade: DS.attr(),
+  shotPercentage: DS.attr()
 });

@@ -1,14 +1,23 @@
 StatTracker.NewPlayerController = Ember.ObjectController.extend({
+  needs: ['team'],
   actions: {
     add: function() {
-      var player = this.get('model');
-      player.save();
+      var newPlayer = this.store.createRecord('player', {
+        name: this.get('playerName'),
+        shotAttempts: 0,
+        shotsMade: 0,
+        shotPercentage: 0
+      });
+      newPlayer.save();
+
 
       var controller = this;
-      player.get('team').then(function(team) {
+      team.get('players').pushObject(newPlayer);
+      newPlayer.get('team').then(function(team) {
         team.save();
-        controller.transitionToRoute('team', team);
-      });
+      })
+
+      this.transitionToRoute('team', team.id)
     }
   }
 });
